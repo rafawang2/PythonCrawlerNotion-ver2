@@ -50,8 +50,8 @@ if(res.status_code == requests.codes.ok):
     for i in range(1,pages_cnt+1):
         page_link = generate_page_link(keyword,i)
         print(f'抓取第{i}頁資料中')
-        df = pd.concat([df, page_crawel(page_link)], axis=0)
-    
+        df = pd.concat([df, page_crawel(page_link)], ignore_index=True, axis=0)
+        
     print('所有書籍抓取完畢!')
     print(df)
     current_directory = os.path.dirname(os.path.abspath(__file__))
